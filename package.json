@@ -1,0 +1,12 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "surge . kevindesign4.surge.sh",
+    "start": "live-server --browser='Google Chrome'"
+  },
+  "author": "Kevin Dillaerts",
+  "license": "ISC"
+}
