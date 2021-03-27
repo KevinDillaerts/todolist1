@@ -64,4 +64,54 @@ form button {
   outline: none;
   top: 20px;
   right: 20px;
+  cursor: pointer;
+}
+
+ul li {
+  display: flex;
+
+  align-items: center;
+  background-color: var(--white);
+  border-radius: 5px;
+  padding: 13px;
+  margin-bottom: 13px;
+  box-shadow: 5px 5px 5px 0px var(--grey);
+}
+
+ul li span {
+  margin-right: auto;
+  padding: 10px;
+  line-height: 23px;
+}
+
+ul li button {
+  position: relative;
+  width: 39px;
+  min-width: 39px; /*anders duwt lange tekst de buttons in elkaar, nu blijven ze vast*/
+  height: 39px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: var(--green);
+  font-size: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul li button:last-child {
+  margin-left: 26px;
+}
+
+ul li button:last-child::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 1px;
+  height: calc(100% - 11px); /*11px is 39px hoogte button - 28px fontsize icon*/
+  right: 52px; /*paddings optellen samen met de heft van de margin left op de last-child en dan de helft van de width van de after aftrekken*/
+  top: 5.5px; /*de helft van die 11px bij de calc lager dan*/
+  background-color: var(--grey);
+  pointer-events: none; /*anders pakt hij toch de link van de button mee, zo is het element niet klikbaar*/
 }
