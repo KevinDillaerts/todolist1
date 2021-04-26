@@ -1,0 +1,127 @@
+@use "./base/variables" as *;
+@use "./base/reset";
+@use "./base/fonts";
+@use "./base/mixins" as *;
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: $bodybg;
+  margin-top: 27px;
+}
+
+main {
+  width: 80%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.form {
+  position: relative;
+  background-color: $green;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 19px;
+  &__input {
+    width: calc(100% - 34px);
+    background-color: $bgc;
+    border: none;
+    border-radius: 8px 0 0 8px; /*hier geen TRBL maar linksboven, rechtsboven, rechtsonder, linksonder*/
+    outline: none;
+    color: $white;
+    font-size: 16px;
+    padding: 0 57px 0 23px;
+    height: 68px;
+    &::placeholder {
+      color: $white;
+      opacity: 0.6;
+    }
+  }
+  &__button {
+    position: absolute;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: $green;
+    background-color: $white;
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    border: 1px solid $green;
+    outline: none;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+  &--error {
+    .form__input {
+      background-color: red;
+    }
+  }
+}
+
+.list {
+  &__item {
+    display: flex;
+    align-items: center;
+    background-color: $white;
+    border-radius: 5px;
+    padding: 13px;
+    margin-bottom: 13px;
+    box-shadow: 5px 5px 5px 0px $grey;
+    &--checked {
+      .list__item__text {
+        text-decoration: line-through;
+      }
+      .list__item__check {
+        .icon-checkbox-unchecked {
+          display: none;
+        }
+        .icon-checkbox-checked {
+          display: block;
+        }
+      }
+    }
+    &__text {
+      margin-right: auto;
+      padding: 10px;
+      line-height: 23px;
+    }
+    &__check,
+    &__delete {
+      position: relative;
+      width: 39px;
+      min-width: 39px; /*anders duwt lange tekst de buttons in elkaar, nu blijven ze vast*/
+      height: 39px;
+      border: none;
+      outline: none;
+      background-color: transparent;
+      cursor: pointer;
+      color: $green;
+      font-size: 28px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &__check {
+      .icon-checkbox-checked {
+        display: none;
+      }
+    }
+    &__delete {
+      margin-left: 26px;
+      &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 1px;
+        height: calc(100% - 11px); /*11px is 39px hoogte button - 28px fontsize icon*/
+        right: 52px; /*paddings optellen samen met de heft van de margin left op de last-child en dan de helft van de width van de after aftrekken*/
+        top: 5.5px; /*de helft van die 11px bij de calc lager dan*/
+        background-color: $grey;
+        pointer-events: none; /*anders pakt hij toch de link van de button mee, zo is het element niet klikbaar*/
+      }
+    }
+  }
+}

@@ -1,11 +1,14 @@
 {
-  "name": "project",
+  "name": "todolist",
   "version": "1.0.0",
-  "description": "",
+  "description": "app to manage todos",
   "main": "index.js",
   "scripts": {
-    "deploy": "surge . kevindesign4.surge.sh",
-    "start": "live-server --browser='Google Chrome'"
+    "deploy": "surge . kevintodo.surge.sh",
+    "dev-server": "live-server --browser='Google Chrome'",
+    "dev-style": "sass ./css/style.scss ./css/style.css --watch",
+    "start": "npm-run-all --parallel dev-style dev-server",
+    "prod-style": "sass ./css/style.scss ./css/style.css --no-source-map --style-compressed"
   },
   "author": "Kevin Dillaerts",
   "license": "ISC"

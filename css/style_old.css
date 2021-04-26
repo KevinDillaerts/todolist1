@@ -1,0 +1,116 @@
+@import url("./reset.css");
+@import url("../icons/style.css");
+
+:root {
+  --black: #000;
+  --white: #fff;
+  --green: #19ba99;
+  --grey: #cbd5d2;
+  --bodybg: #eef3f6;
+  --bgc: rgba(255, 255, 255, 0.3);
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--bodybg);
+  margin-top: 27px;
+}
+
+main {
+  width: 60%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+form {
+  position: relative;
+  background-color: var(--green);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 19px;
+}
+
+form input {
+  width: calc(100% - 34px);
+  background-color: rgba(255, 255, 255, 0.3);
+  border: none;
+  border-radius: 8px 0 0 8px; /*hier geen TRBL maar linksboven, rechtsboven, rechtsonder, linksonder*/
+  outline: none;
+  color: var(--white);
+  font-size: 16px;
+  padding: 0 57px 0 23px;
+  height: 68px;
+}
+
+form input::placeholder {
+  color: var(--white);
+  opacity: 0.6;
+}
+
+form button {
+  position: absolute;
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: var(--green);
+  background-color: var(--white);
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border: 1px solid var(--green);
+  outline: none;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+ul li {
+  display: flex;
+
+  align-items: center;
+  background-color: var(--white);
+  border-radius: 5px;
+  padding: 13px;
+  margin-bottom: 13px;
+  box-shadow: 5px 5px 5px 0px var(--grey);
+}
+
+ul li span {
+  margin-right: auto;
+  padding: 10px;
+  line-height: 23px;
+}
+
+ul li button {
+  position: relative;
+  width: 39px;
+  min-width: 39px; /*anders duwt lange tekst de buttons in elkaar, nu blijven ze vast*/
+  height: 39px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: var(--green);
+  font-size: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ul li button:last-child {
+  margin-left: 26px;
+}
+
+ul li button:last-child::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 1px;
+  height: calc(100% - 11px); /*11px is 39px hoogte button - 28px fontsize icon*/
+  right: 52px; /*paddings optellen samen met de heft van de margin left op de last-child en dan de helft van de width van de after aftrekken*/
+  top: 5.5px; /*de helft van die 11px bij de calc lager dan*/
+  background-color: var(--grey);
+  pointer-events: none; /*anders pakt hij toch de link van de button mee, zo is het element niet klikbaar*/
+}
